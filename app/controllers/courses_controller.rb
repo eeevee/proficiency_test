@@ -15,6 +15,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @statuses = Course.statuses
   end
 
   # GET /courses/1/edit
@@ -70,6 +71,7 @@ class CoursesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])
+      @statuses = Course.statuses
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

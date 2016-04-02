@@ -1,5 +1,11 @@
 ---
 pt-BR:
+  course_status:
+    active: 'Ativo'
+    inactive: 'Inativo'
+  student_status:
+    active: 'Ativo'
+    inactive: 'Inativo'
   date:
     abbr_day_names:
     - Dom

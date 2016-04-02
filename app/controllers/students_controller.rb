@@ -15,6 +15,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @statuses = Student.statuses
   end
 
   # GET /students/1/edit
@@ -70,6 +71,7 @@ class StudentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])
+      @statuses = Student.statuses
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
