@@ -31,7 +31,7 @@ class ClassroomsController < ApplicationController
     @students = Student.all
     respond_to do |format|
       if @classroom.save
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }
+        format.html { redirect_to @classroom, notice: t('classrooms.create.notice') }
         format.json { render action: 'show', status: :created, location: @classroom }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class ClassroomsController < ApplicationController
   def update
     respond_to do |format|
       if @classroom.update(classroom_params)
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully updated.' }
+        format.html { redirect_to @classroom, notice: t('classrooms.update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,8 +59,13 @@ class ClassroomsController < ApplicationController
   def destroy
     @classroom.destroy
     respond_to do |format|
-      format.html { redirect_to classrooms_url }
-      format.json { head :no_content }
+      if not @classroom.errors.any?
+        format.html { redirect_to classrooms_url, notice: t('classrooms.destroy.notice') }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to classrooms_url, alert: @classroom.errors.full_messages.join('<br>') }
+        format.json { head :no_content }
+      end
     end
   end
 

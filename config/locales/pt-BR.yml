@@ -1,5 +1,26 @@
 ---
 pt-BR:
+  students:
+    create:
+      notice: 'Estudante criado com sucesso.'
+    update:
+      notice: 'Estudante atualizado com sucesso.'
+    destroy:
+      notice: 'Estudante removido com sucesso.'
+  courses:
+    create:
+      notice: 'Curso criado com sucesso.'
+    update:
+      notice: 'Curso atualizado com sucesso.'
+    destroy:
+      notice: 'Curso removido com sucesso.'
+  classrooms:
+    create:
+      notice: 'Classe criada com sucesso.'
+    update:
+      notice: 'Classe atualizada com sucesso.'
+    destroy:
+      notice: 'Classe removida com sucesso.'
   course_status:
     active: 'Ativo'
     inactive: 'Inativo'
@@ -239,6 +260,8 @@ pt-BR:
         entry_at: "Data de Entrada"
         student_id: "Estudante"
         course_id: "Curso"
+        classrooms: 'Classes'
+        classroom: 'Classe'
   devise:
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'

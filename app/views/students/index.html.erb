@@ -16,7 +16,7 @@
       <tr>
         <td><%= student.name %></td>
         <td><%= student.register_number %></td>
-        <td><%= student.status %></td>
+        <td><%= I18n.t("student_status.#{student.status}") %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_student_path(student), :class => 'btn btn-default btn-xs' %>

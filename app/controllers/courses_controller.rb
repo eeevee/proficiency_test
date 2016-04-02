@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
     @statuses = Student.statuses
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Curso criado com sucesso.' }
+        format.html { redirect_to @course, notice: t('courses.create.notice') }
         format.json { render action: 'show', status: :created, location: @course }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Curso atualizado com sucesso.' }
+        format.html { redirect_to @course, notice: t('courses.update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class CoursesController < ApplicationController
     @course.destroy
     respond_to do |format|
       if not @course.errors.any?
-        format.html { redirect_to courses_url, notice: 'Curso removido com sucesso.' }
+        format.html { redirect_to courses_url, notice: t('courses.destroy.notice') }
         format.json { head :no_content }
       else
         format.html { redirect_to courses_url, alert: @course.errors.full_messages.join('<br>') }
