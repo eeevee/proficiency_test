@@ -128,7 +128,7 @@ RSpec.describe ClassroomsController, :type => :controller do
 
     describe "with invalid params" do
       let(:invalid_update_attributes) {
-        {student_id: 1, course_id: 1}
+        {student_id: 1, course_id: 1, entry_at: ''}
       }
 
       it "assigns the classroom as @classroom" do
