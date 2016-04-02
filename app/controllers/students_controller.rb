@@ -15,6 +15,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @statuses = Student.statuses
   end
 
   # GET /students/1/edit
@@ -25,10 +26,10 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
+    @statuses = Student.statuses
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Estudante criado com sucesso.' }
+        format.html { redirect_to @student, notice: t('students.create.notice') }
         format.json { render action: 'show', status: :created, location: @student }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Estudante atualizado com sucesso.' }
+        format.html { redirect_to @student, notice: t('students.update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +58,7 @@ class StudentsController < ApplicationController
     @student.destroy
     respond_to do |format|
       if not @student.errors.any?
-        format.html { redirect_to students_url, notice: 'Estudante removido com sucesso.' }
+        format.html { redirect_to students_url, notice: t('students.destroy.notice') }
         format.json { head :no_content }
       else
         format.html { redirect_to students_url, alert: @student.errors.full_messages.join('<br>') }
@@ -70,6 +71,7 @@ class StudentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])
+      @statuses = Student.statuses
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

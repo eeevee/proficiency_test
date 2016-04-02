@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @course.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @course.status %></dd>
+  <dd><%= I18n.t("course_status.#{@course.status}") %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

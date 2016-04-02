@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
             <%= f.label :status %><br>
-            <%= f.text_field :status, :class => 'form-control' %>
+            <%= f.select :status, options_for_select(@statuses.collect { |s| [I18n.t("student_status.#{s[0]}"), s[0]] }, selected: @student.status), {}, class: 'form-control' %>
           </div>
     </div>
   </section>

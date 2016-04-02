@@ -1,5 +1,32 @@
 ---
 pt-BR:
+  students:
+    create:
+      notice: 'Estudante criado com sucesso.'
+    update:
+      notice: 'Estudante atualizado com sucesso.'
+    destroy:
+      notice: 'Estudante removido com sucesso.'
+  courses:
+    create:
+      notice: 'Curso criado com sucesso.'
+    update:
+      notice: 'Curso atualizado com sucesso.'
+    destroy:
+      notice: 'Curso removido com sucesso.'
+  classrooms:
+    create:
+      notice: 'Classe criada com sucesso.'
+    update:
+      notice: 'Classe atualizada com sucesso.'
+    destroy:
+      notice: 'Classe removida com sucesso.'
+  course_status:
+    active: 'Ativo'
+    inactive: 'Inativo'
+  student_status:
+    active: 'Ativo'
+    inactive: 'Inativo'
   date:
     abbr_day_names:
     - Dom
@@ -99,6 +126,7 @@ pt-BR:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      student_already_in_course: "O Estudante já está cadastrado no Curso"
       accepted: deve ser aceito
       blank: não pode ficar em branco
       present: deve ficar em branco
@@ -133,7 +161,7 @@ pt-BR:
   helpers:
     links:
       new: 'Novo'
-      confirm: 'Confirmar'
+      confirm: 'Você tem certeza?'
       edit: 'Editar'
       destroy: 'Excluir'
       show: 'Visualizar'
@@ -218,6 +246,7 @@ pt-BR:
     models:
       student: 'Estudante'
       course: 'Curso'
+      classroom: 'Classe'
     attributes:
       student:
         name: "Nome"
@@ -227,6 +256,12 @@ pt-BR:
         name: "Nome"
         description: "Descrição"
         status: "Status"
+      classroom:
+        entry_at: "Data de Entrada"
+        student_id: "Estudante"
+        course_id: "Curso"
+        classrooms: 'Classes'
+        classroom: 'Classe'
   devise:
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
