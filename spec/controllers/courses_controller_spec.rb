@@ -24,11 +24,11 @@ RSpec.describe CoursesController, :type => :controller do
   # Course. As you add validations to Course, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:course)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: '', description: '', status: ''}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe CoursesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: 'física avançada'}
       }
 
       it "updates the requested course" do
         course = Course.create! valid_attributes
         put :update, {:id => course.to_param, :course => new_attributes}, valid_session
         course.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:course).attributes.symbolize_keys[:name]).to eq(new_attributes[:name])
       end
 
       it "assigns the requested course as @course" do

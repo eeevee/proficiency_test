@@ -24,11 +24,11 @@ RSpec.describe ClassroomsController, :type => :controller do
   # Classroom. As you add validations to Classroom, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:classroom)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {entry_at:'', student_id:'', course_id:''}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe ClassroomsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {student_id: 2}
       }
 
       it "updates the requested classroom" do
         classroom = Classroom.create! valid_attributes
         put :update, {:id => classroom.to_param, :classroom => new_attributes}, valid_session
         classroom.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:classroom).attributes.symbolize_keys[:student_id]).to eq(new_attributes[:student_id])
       end
 
       it "assigns the requested classroom as @classroom" do
@@ -127,15 +127,19 @@ RSpec.describe ClassroomsController, :type => :controller do
     end
 
     describe "with invalid params" do
+      let(:invalid_update_attributes) {
+        {student_id: 1, course_id: 1}
+      }
+
       it "assigns the classroom as @classroom" do
         classroom = Classroom.create! valid_attributes
-        put :update, {:id => classroom.to_param, :classroom => invalid_attributes}, valid_session
+        put :update, {:id => classroom.to_param, :classroom => invalid_update_attributes}, valid_session
         expect(assigns(:classroom)).to eq(classroom)
       end
 
       it "re-renders the 'edit' template" do
         classroom = Classroom.create! valid_attributes
-        put :update, {:id => classroom.to_param, :classroom => invalid_attributes}, valid_session
+        put :update, {:id => classroom.to_param, :classroom => invalid_update_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end

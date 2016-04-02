@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :course do
-    name "MyString"
-    description "MyString"
-    status 1
+    name "matemática"
+    description "descrição"
+    status {Course.statuses.keys.sample}
   end
 end

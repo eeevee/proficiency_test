@@ -124,8 +124,10 @@ pt-BR:
       second: Segundo
       year: Ano
   errors:
+    notice: 'Erro!'
     format: "%{attribute} %{message}"
     messages:
+      invalid_date: "Data inválida"
       student_already_in_course: "O Estudante já está cadastrado no Curso"
       accepted: deve ser aceito
       blank: não pode ficar em branco
