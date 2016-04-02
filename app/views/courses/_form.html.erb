@@ -5,13 +5,7 @@
   </a>
   <div class="panel"></div>
   <section class="panel">
-    <% if @course.errors.any? %>
-      <div class="alert alert-danger">
-        <% @course.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render partial: 'layouts/errors_messages', locals: {object: @course} %>
     <div class="panel-body">
           <div class="form-group">
             <%= f.label :name %><br>
