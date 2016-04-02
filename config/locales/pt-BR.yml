@@ -105,6 +105,7 @@ pt-BR:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      student_already_in_course: "O Estudante já está cadastrado no Curso"
       accepted: deve ser aceito
       blank: não pode ficar em branco
       present: deve ficar em branco
@@ -139,7 +140,7 @@ pt-BR:
   helpers:
     links:
       new: 'Novo'
-      confirm: 'Confirmar'
+      confirm: 'Você tem certeza?'
       edit: 'Editar'
       destroy: 'Excluir'
       show: 'Visualizar'
@@ -224,6 +225,7 @@ pt-BR:
     models:
       student: 'Estudante'
       course: 'Curso'
+      classroom: 'Classe'
     attributes:
       student:
         name: "Nome"
@@ -233,6 +235,10 @@ pt-BR:
         name: "Nome"
         description: "Descrição"
         status: "Status"
+      classroom:
+        entry_at: "Data de Entrada"
+        student_id: "Estudante"
+        course_id: "Curso"
   devise:
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
