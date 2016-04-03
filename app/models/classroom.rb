@@ -16,7 +16,7 @@ class Classroom < ActiveRecord::Base
   end
 
   def user_already_registered?
-    if changed?
+    if changed? and not self.entry_at_changed?
   	   errors.add(I18n.t('errors.notice'), I18n.t('errors.messages.student_already_in_course')) unless Classroom.where(student_id: student_id, course_id: course_id).empty?
     end
   end
